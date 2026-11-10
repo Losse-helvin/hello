@@ -754,7 +754,7 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
   margin:0;
   background:#ffffff;
   border-top:1px solid #e3e3e3;
-  padding:20px clamp(16px, 4vw, 80px);
+  padding:20px 0;
   font-family:"Roboto",Arial,"Helvetica Neue",sans-serif;
   font-size:13.5px;
   line-height:1.5;
@@ -762,7 +762,10 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 }
 .hellodevis-footer *{box-sizing:border-box;}
 .hellodevis-footer__inner{
+  width:100%;
+  max-width:1140px;
   margin:0 auto;
+  padding:0;
   display:flex;
   flex-wrap:wrap;
   align-items:center;
@@ -798,8 +801,8 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 }
 .hellodevis-footer__sep{color:#1f1f1f;}
 @media (max-width:767px){
-  .hellodevis-footer{padding:18px 16px;text-align:center;}
-  .hellodevis-footer__inner{flex-direction:column;justify-content:center;gap:10px;}
+  .hellodevis-footer{padding:18px 0;text-align:center;}
+  .hellodevis-footer__inner{max-width:100%;padding:0 20px;}
   .hellodevis-footer__links{justify-content:center;}
 }
 </style>
