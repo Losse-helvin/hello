@@ -534,7 +534,8 @@ a.no-theme-style {
 }
 
 </style>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><style id="hellodevis-responsive-safe">html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}body{-webkit-tap-highlight-color:transparent;}</style>
+</head>
 <body class="wp-singular page-template page-template-elementor_canvas page page-id-1537 wp-embed-responsive wp-theme-hello-elementor eio-default hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-1537">
 	<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53SH7D7F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -656,7 +657,7 @@ window.addEventListener("message", function(event) {
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-716586f elementor-widget elementor-widget-text-editor" data-id="716586f" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Pour les trajets courts, privilégiez la marche ou le vélo.<br>#SeDéplacerMoinsPolluer<br>(1) Offre de location longue durée sur 37 mois et 30000 kilomètres pour une Audi Q6 e-tron performance S line hors option, 37 loyers de 910€ avec perte financière (2), contrat de maintenance aux professionnels et véhicule de remplacement (3) inclus. Offre valable du 1er novembre 2026 au 30 novembre 2026, dans la limite des stocks disponibles. Réservée à la clientèle professionnelle, hors taxis, loueurs et flottes, chez tous les distributeurs Audi présentant ce financement, sous réserve d&#x27;acceptation du dossier par Audi Business division de VOLKSWAGEN BANK GMBH - SARL de droit allemand - Capital social : € 318 279 200 - Siège social : Braunschweig (Allemagne) - RC/HRB Braunschweig : 1819 - Intermédiaire d’assurance européen : D-HNQM-UQ9MO-22 (www.orias.fr) - Succursale France : Bâtiment Ellipse, 15 avenue de la Demi-Lune - 95700 Roissy-en-France - RCS Pontoise : 451 618 904 - Administration et adresse postale : 11, avenue de Boursonne - B.P. 61 - 02601 Villers-Cotterêts Cedex. Montants exprimés TTC, prestations (2)(3) incluses.</p>
+									<p>Pour les trajets courts, privilégiez la marche ou le vélo.<br>#SeDéplacerMoinsPolluer</p><p>(1) Offre de location longue durée sur 37 mois et 30000 kilomètres pour une Audi Q6 e-tron performance S line hors option, 37 loyers de 910€ avec perte financière (2), contrat de maintenance aux professionnels et véhicule de remplacement (3) inclus. Offre valable du 1er novembre 2026 au 30 novembre 2026, dans la limite des stocks disponibles. Réservée à la clientèle professionnelle, hors taxis, loueurs et flottes, chez tous les distributeurs Audi présentant ce financement, sous réserve d&#x27;acceptation du dossier par Audi Business division de VOLKSWAGEN BANK GMBH - SARL de droit allemand - Capital social : € 318 279 200 - Siège social : Braunschweig (Allemagne) - RC/HRB Braunschweig : 1819 - Intermédiaire d’assurance européen : D-HNQM-UQ9MO-22 (www.orias.fr) - Succursale France : Bâtiment Ellipse, 15 avenue de la Demi-Lune - 95700 Roissy-en-France - RCS Pontoise : 451 618 904 - Administration et adresse postale : 11, avenue de Boursonne - B.P. 61 - 02601 Villers-Cotterêts Cedex. Montants exprimés TTC, prestations (2)(3) incluses.</p>
 <p>Gamme Audi Q6 e-tron (hors SQ6) : consommation électrique en cycle mixte WLTP (kWh/100 km) : 16,2 - 19,0. Rejets de C02 en cycle mixte WLTP (g/km) : 0. Valeurs liées à la configuration du véhicule et susceptibles d’évolution. Tarif au : 07/05/2026.</p>
 <p>(2) Perte financière obligatoire incluse dans les loyers, souscrite auprès de la société ICARE ASSURANCE, SA au capital 2 358 816 € - RCS Nanterre : 327 061 339 - 93 rue Nationale 92100 Boulogne Billancourt. Entreprise régie par le Code des assurances.</p>
 <p>(3) Contrat de maintenance obligatoire souscrit auprès de Volkswagen Bank GmbH, véhicule de remplacement inclus : Entreprise régie par le Code des assurances et soumises à l&#x27;Autorité de Contrôle Prudentiel et de Résolution (ACP) - 4 place de Budapest 75009 PARIS cedex 9.</p>
@@ -732,6 +733,55 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 </script>
 	
 <style id="hellodevis-footer-css">
+/* ===== Correctifs responsive mobile / tablette ===== */
+/* 1) Les colonnes visuelles (mon-id-2 / mon-id-q4) avaient une hauteur fixe
+   (900-1000px) non neutralisee sur mobile : enorme vide sous le visuel.
+   Le selecteur d'origine ".e-grid.e-parent" ne correspond a aucun element
+   (Elementor met "e-con e-parent" sur les conteneurs, pas "e-parent" sur la grille). */
+@media (max-width: 900px) {
+  .mon-id-2,
+  .mon-id-q4,
+  .id-3 {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .mon-id-2 img,
+  .mon-id-q4 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+/* 2) Le bandeau legal respire a l'ecran (conteneur Elementor boxed). */
+@media (max-width: 1024px) {
+  .elementor .e-con-boxed > .e-con-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .elementor .e-con-boxed > .e-con-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* 3) Footer : largeur stable sur toutes les versions mobiles. */
+@media (max-width: 767px) {
+  .hellodevis-footer__inner { padding: 0 16px; }
+  .hellodevis-footer__brand,
+  .hellodevis-footer__links { text-align: center; }
+}
+@media (max-width: 400px) {
+  .hellodevis-footer { padding: 16px 0; }
+  .hellodevis-footer__inner { padding: 0 12px; gap: 8px; }
+  .hellodevis-footer__brand,
+  .hellodevis-footer__links { font-size: 12.5px; }
+  .hellodevis-footer__links { flex-wrap: wrap; row-gap: 4px; }
+}
+
 /* ===== Footer commun Hellodevis 2026 (toutes les pages) ===== */
 .hellodevis-footer{
   box-sizing:border-box;

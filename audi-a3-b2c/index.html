@@ -534,7 +534,8 @@ a.no-theme-style {
 }
 
 </style>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><style id="hellodevis-responsive-safe">html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}body{-webkit-tap-highlight-color:transparent;}</style>
+</head>
 <body class="wp-singular page-template page-template-elementor_canvas page page-id-1460 wp-embed-responsive wp-theme-hello-elementor eio-default hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-1460">
 	<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53SH7D7F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -667,7 +668,7 @@ window.addEventListener("message", function(event) {
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-12a8b90 elementor-widget elementor-widget-text-editor" data-id="12a8b90" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Pensez à covoiturer.<br>#SeDéplacerMoinsPolluer</p>
+									<p>Pensez à covoiturer.</p><p>#SeDéplacerMoinsPolluer</p>
 <p>(1) Location longue durée sur 37 mois et 30 000 kilomètres avec Garantie (2), Entretien plus, véhicule de remplacement (3) et Assistance inclus. 1er loyer de 4800 € et 36 loyers de 490 €.</p>
 <p>(1) Exemple pour une Nouvelle Audi A3 Sportback e-hybrid 204 ch S tronic S line. Options incluses dans les loyers : 2 ans de garantie additionnelle</p>
 <p>(2) Offre réservée aux particuliers et valable chez tous les Distributeurs présentant ce financement, pour toute commande du 1er novembre 2026 au 30 novembre 2026, sous réserve d’acceptation du dossier par VOLKSWAGEN BANK GMBH - SARL de droit allemand - Capital social : 318 279 200€ - Siège social : Braunschweig (Allemagne) - RC/HRB Braunschweig : 1819 - Intermédiaire d’assurance européen : D-HNQM-UQ9MO-22 (www.orias.fr) - Succursale France : Bâtiment Ellipse, 15 avenue de la Demi-Lune - 95700 Roissy-en-France - RCS Pontoise : 451 618 904 - Administration et adresse postale : 11, avenue de Boursonne - B.P. 61 - 02601 Villers-Cotterêts Cedex.</p>
@@ -748,6 +749,55 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 </script>
 	
 <style id="hellodevis-footer-css">
+/* ===== Correctifs responsive mobile / tablette ===== */
+/* 1) Les colonnes visuelles (mon-id-2 / mon-id-q4) avaient une hauteur fixe
+   (900-1000px) non neutralisee sur mobile : enorme vide sous le visuel.
+   Le selecteur d'origine ".e-grid.e-parent" ne correspond a aucun element
+   (Elementor met "e-con e-parent" sur les conteneurs, pas "e-parent" sur la grille). */
+@media (max-width: 900px) {
+  .mon-id-2,
+  .mon-id-q4,
+  .id-3 {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .mon-id-2 img,
+  .mon-id-q4 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+/* 2) Le bandeau legal respire a l'ecran (conteneur Elementor boxed). */
+@media (max-width: 1024px) {
+  .elementor .e-con-boxed > .e-con-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .elementor .e-con-boxed > .e-con-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* 3) Footer : largeur stable sur toutes les versions mobiles. */
+@media (max-width: 767px) {
+  .hellodevis-footer__inner { padding: 0 16px; }
+  .hellodevis-footer__brand,
+  .hellodevis-footer__links { text-align: center; }
+}
+@media (max-width: 400px) {
+  .hellodevis-footer { padding: 16px 0; }
+  .hellodevis-footer__inner { padding: 0 12px; gap: 8px; }
+  .hellodevis-footer__brand,
+  .hellodevis-footer__links { font-size: 12.5px; }
+  .hellodevis-footer__links { flex-wrap: wrap; row-gap: 4px; }
+}
+
 /* ===== Footer commun Hellodevis 2026 (toutes les pages) ===== */
 .hellodevis-footer{
   box-sizing:border-box;
