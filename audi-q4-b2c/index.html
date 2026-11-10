@@ -534,7 +534,8 @@ a.no-theme-style {
 }
 
 </style>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><style id="hellodevis-responsive-safe">html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}body{-webkit-tap-highlight-color:transparent;}</style>
+</head>
 <body class="wp-singular page-template page-template-elementor_canvas page page-id-1737 wp-embed-responsive wp-theme-hello-elementor eio-default hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-1737">
 	<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53SH7D7F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -675,7 +676,7 @@ window.addEventListener("message", function(event) {
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-a845d24 elementor-widget elementor-widget-text-editor" data-id="a845d24" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Pour les trajets courts, privilégiez la marche ou le vélo.<br>#SeDéplacerMoinsPolluer</p>
+									<p>Pour les trajets courts, privilégiez la marche ou le vélo.</p><p>#SeDéplacerMoinsPolluer</p>
 <p>(1) Éco-score : score environnemental attribué par l’ADEME (Agence de la transition écologique), selon la méthodologie disponible sur le site de l’ADEME. Score attribué aux seules versions éligibles des gammes Audi Q4 e-tron et Audi Q6 e-tron : Q4 e-tron (SUV &amp; Sportback), Q4 e-tron quattro performance (SUV &amp; Sportback) et Q6 e-tron performance (SUV &amp; Sportback) selon les données disponibles à la date de l’évaluation.</p>
 <p>(2) Location longue durée sur 37 mois et 30 000 kilomètres avec Garantie (3), Entretien plus, véhicule de remplacement (4) et Assistance inclus. 1er loyer de 5435 € ramené à 1900 € après déduction de la prime CEE EDF de 3535€ (sous réserve de validation par l&#x27;ADEME, conditions sur service-public.fr) suivi de 36 loyers de 490€.</p>
 <p>(2) Exemple pour une Nouvelle Audi Q4 e-tron pack S line. Options incluses dans les loyers : 2 ans de garantie additionnelle</p>
@@ -751,6 +752,55 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 </script>
 	
 <style id="hellodevis-footer-css">
+/* ===== Correctifs responsive mobile / tablette ===== */
+/* 1) Les colonnes visuelles (mon-id-2 / mon-id-q4) avaient une hauteur fixe
+   (900-1000px) non neutralisee sur mobile : enorme vide sous le visuel.
+   Le selecteur d'origine ".e-grid.e-parent" ne correspond a aucun element
+   (Elementor met "e-con e-parent" sur les conteneurs, pas "e-parent" sur la grille). */
+@media (max-width: 900px) {
+  .mon-id-2,
+  .mon-id-q4,
+  .id-3 {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .mon-id-2 img,
+  .mon-id-q4 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+/* 2) Le bandeau legal respire a l'ecran (conteneur Elementor boxed). */
+@media (max-width: 1024px) {
+  .elementor .e-con-boxed > .e-con-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .elementor .e-con-boxed > .e-con-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* 3) Footer : largeur stable sur toutes les versions mobiles. */
+@media (max-width: 767px) {
+  .hellodevis-footer__inner { padding: 0 16px; }
+  .hellodevis-footer__brand,
+  .hellodevis-footer__links { text-align: center; }
+}
+@media (max-width: 400px) {
+  .hellodevis-footer { padding: 16px 0; }
+  .hellodevis-footer__inner { padding: 0 12px; gap: 8px; }
+  .hellodevis-footer__brand,
+  .hellodevis-footer__links { font-size: 12.5px; }
+  .hellodevis-footer__links { flex-wrap: wrap; row-gap: 4px; }
+}
+
 /* ===== Footer commun Hellodevis 2026 (toutes les pages) ===== */
 .hellodevis-footer{
   box-sizing:border-box;
